@@ -36,6 +36,17 @@ module.exports = {
       warnings: false,
       errors: true
     },
+    // 配置反向代理
+    proxy: {
+      // 当地址中有/api的时候会触发代理机制
+      '/api': {
+        target: 'http://ihrm-java.itheima.net/', // 要代理的服务器地址  这里不用写 api
+        // target: 'www.baidu.com', // 要代理的服务器地址  这里不用写 api
+        changeOrigin: true // 是否跨域
+        // 重写路径
+        // pathRewrite: {}
+      }
+    }
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
